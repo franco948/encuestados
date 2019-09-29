@@ -11,6 +11,10 @@ var VistaUsuario = function(modelo, controlador, elementos) {
   this.modelo.preguntaAgregada.suscribir(function() {
     contexto.reconstruirLista();
   });
+
+  this.modelo.preguntaVotada.suscribir(function() {
+    contexto.reconstruirGrafico();
+  });
 };
 
 VistaUsuario.prototype = {
@@ -52,9 +56,9 @@ VistaUsuario.prototype = {
       //completar
       //agregar a listaPreguntas un elemento div con valor "clave.textoPregunta", texto "clave.textoPregunta", id "clave.id"
       var pregunta = $(document.createElement('div'));
-      
+
       pregunta.attr('id', clave.id);
-      pregunta.val(clave.textoPregunta);
+      pregunta.attr('value',clave.textoPregunta);
       pregunta.text(clave.textoPregunta);
       listaPreguntas.append(pregunta);
 

@@ -19,5 +19,9 @@ Controlador.prototype = {
   editarPregunta: function(id, nuevoTextoPregunta)
   {
     this.modelo.editarPregunta(id, nuevoTextoPregunta);
+  },
+  agregarVoto: function(nombrePregunta, respuestaSeleccionada)
+  {
+    this.modelo.agregarVoto(nombrePregunta, respuestaSeleccionada);
   }
 };

@@ -10,6 +10,7 @@ var Modelo = function () {
   this.preguntaAgregada = new Evento(this);
   this.preguntaEliminada = new Evento(this);
   this.preguntaEditada = new Evento(this);
+  this.preguntaVotada = new Evento(this);
 };
 
 Modelo.prototype = {
@@ -48,12 +49,14 @@ Modelo.prototype = {
     this.preguntaEliminada.notificar();
   },
 
-  // votarPregunta: function(id, textoRespuesta)
-  // {
-  //   var preguntaAResponder = this.buscarPregunta(id);
-  //   var respuestaElegida = preguntaAResponder.respuestas.find(respuesta => respuesta.textoRespuesta === textoRespuesta); 
-  //   respuestaElegida.cantidad +=1;     
-  // },
+  agregarVoto: function(nombrePregunta, respuestaSeleccionada)
+  {
+    var preguntaAResponder = this.preguntas.find(pregunta => pregunta.textoPregunta === nombrePregunta);
+    var respuestaElegida = preguntaAResponder.cantidadPorRespuesta.find(respuesta => respuesta.textoRespuesta === respuestaSeleccionada); 
+    respuestaElegida.cantidad +=1;     
+    this.guardar();
+    this.preguntaVotada.notificar();
+  },
 
   editarPregunta: function(id, nuevoTextoPregunta)
   {
