@@ -72,11 +72,14 @@ VistaAdministrador.prototype = {
 
       $('[name="option[]"]').each(function () {
         //completar
-        respuestas.push(
-          {
-            'textoRespuesta': $(this).val(),
-            'cantidad': 0
-          });
+        if($(this).val())
+        {
+          respuestas.push(
+            {
+              'textoRespuesta': $(this).val(),
+              'cantidad': 0
+            });
+        }        
       })
 
       contexto.limpiarFormulario();

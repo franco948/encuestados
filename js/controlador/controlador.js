@@ -7,7 +7,10 @@ var Controlador = function (modelo) {
 
 Controlador.prototype = {
   agregarPregunta: function (pregunta, respuestas) {
-    this.modelo.agregarPregunta(pregunta, respuestas);
+    if (pregunta && respuestas.length > 0)
+    {
+      this.modelo.agregarPregunta(pregunta, respuestas);
+    }
   },
   eliminarPregunta: function (id) {
     this.modelo.eliminarPregunta(id);
@@ -22,6 +25,9 @@ Controlador.prototype = {
   },
   agregarVoto: function(nombrePregunta, respuestaSeleccionada)
   {
-    this.modelo.agregarVoto(nombrePregunta, respuestaSeleccionada);
+    if (respuestaSeleccionada)
+    {
+      this.modelo.agregarVoto(nombrePregunta, respuestaSeleccionada);
+    }    
   }
 };
