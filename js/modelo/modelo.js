@@ -12,7 +12,7 @@ var Modelo = function () {
 Modelo.prototype = {
   //se obtiene el id más grande asignado a una pregunta
   obtenerUltimoId: function () {
-    var maxId = 1;
+    var maxId = 0;
 
     this.preguntas.forEach(pregunta => {
       maxId = pregunta.id > maxId ? pregunta.id : maxId;
