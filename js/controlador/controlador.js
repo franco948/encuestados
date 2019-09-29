@@ -15,5 +15,9 @@ Controlador.prototype = {
   eliminarTodasLasPreguntas: function()
   {
     this.modelo.eliminarTodasLasPreguntas();
+  },
+  editarPregunta: function(id, nuevoTextoPregunta)
+  {
+    this.modelo.editarPregunta(id, nuevoTextoPregunta);
   }
 };

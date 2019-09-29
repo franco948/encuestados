@@ -8,6 +8,7 @@ var Modelo = function () {
   //inicializacion de eventos
   this.preguntaAgregada = new Evento(this);
   this.preguntaEliminada = new Evento(this);
+  this.preguntaEditada = new Evento(this);
 };
 
 Modelo.prototype = {
@@ -51,16 +52,17 @@ Modelo.prototype = {
   //   respuestaElegida.cantidad +=1;     
   // },
 
-  // editarPregunta: function(id, nuevoTextoPregunta)
-  // {
-  //   var preguntaAEditar = this.buscarPregunta(id);
-  //   preguntaAEditar.textoPregunta = nuevoTextoPregunta;
-  // },
+  editarPregunta: function(id, nuevoTextoPregunta)
+  {
+    var preguntaAEditar = this.buscarPregunta(id);
+    preguntaAEditar.textoPregunta = nuevoTextoPregunta;
+    this.preguntaEditada.notificar();
+  },
 
-  // buscarPregunta: function(id)
-  // {
-  //   return this.preguntas.find(pregunta => pregunta.id === idPregunta);
-  // },
+  buscarPregunta: function(id)
+  {
+    return this.preguntas.find(pregunta => pregunta.id === id);
+  },
 
   //se guardan las preguntas
   guardar: function () {
