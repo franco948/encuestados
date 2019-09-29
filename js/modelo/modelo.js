@@ -38,6 +38,30 @@ Modelo.prototype = {
     this.preguntaEliminada.notificar();
   },
 
+  eliminarTodasLasPreguntas: function()
+  {
+    this.preguntas = [];
+    this.preguntaEliminada.notificar();
+  },
+
+  // votarPregunta: function(id, textoRespuesta)
+  // {
+  //   var preguntaAResponder = this.buscarPregunta(id);
+  //   var respuestaElegida = preguntaAResponder.respuestas.find(respuesta => respuesta.textoRespuesta === textoRespuesta); 
+  //   respuestaElegida.cantidad +=1;     
+  // },
+
+  // editarPregunta: function(id, nuevoTextoPregunta)
+  // {
+  //   var preguntaAEditar = this.buscarPregunta(id);
+  //   preguntaAEditar.textoPregunta = nuevoTextoPregunta;
+  // },
+
+  // buscarPregunta: function(id)
+  // {
+  //   return this.preguntas.find(pregunta => pregunta.id === idPregunta);
+  // },
+
   //se guardan las preguntas
   guardar: function () {
   },

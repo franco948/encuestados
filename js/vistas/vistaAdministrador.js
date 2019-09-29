@@ -87,6 +87,10 @@ VistaAdministrador.prototype = {
         contexto.controlador.eliminarPregunta(id);
       }
     });
+
+    e.borrarTodo.click(function() {
+      contexto.controlador.eliminarTodasLasPreguntas();      
+    });
   },
 
   limpiarFormulario: function () {
